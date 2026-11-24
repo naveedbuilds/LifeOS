@@ -1,0 +1,20 @@
+
+{
+  "id": "./index.html",
+  "name": "LifeOS - Your Personal Workspace",
+  "short_name": "LifeOS",
+  "description": "Your personal life management app",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#100d1d",
+  "theme_color": "#100d1d",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

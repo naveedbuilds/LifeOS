@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Browser settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100d1d">
+
+  <!-- Website title -->
+  <title>LifeOS — Your Life, Organized</title>
+
+  <!-- Connect CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+ <!-- LifeOS PWA Settings -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Android and general mobile app support -->
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- Apple mobile app support -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LifeOS">
+
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <h2 class="logo">Life<span>OS</span></h2>
+
+      <p class="menu-title">MENU</p>
+
+      <!-- Sidebar navigation links -->
+      <nav id="sidebarNav">
+        <a class="active" href="#dashboard" data-target="dashboard">⌂ Dashboard</a>
+        <a href="#tasksPanel" data-target="tasksPanel">✓ My Tasks</a>
+        <a href="#remindersPanel" data-target="remindersPanel">◷ Reminders</a>
+        <a href="#notesPanel" data-target="notesPanel">▤ Notes</a>
+        <a href="#moneyPanel" data-target="moneyPanel">＄ Money Tracker</a>
+        <a href="#documentsPanel" data-target="documentsPanel">▣ Documents</a>
+        <a href="#settingsPanel" data-target="settingsPanel">⚙️ Settings & Backup</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <p>Your life. Your control.</p>
+        <small>LifeOS v1.0</small>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main" id="dashboard">
+
+      <!-- Dashboard header -->
+      <header class="topbar">
+        <div>
+          <p class="muted">YOUR PERSONAL WORKSPACE</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="profile">👤</div>
+      </header>
+
+      <!-- Welcome banner -->
+      <section class="welcome">
+        <div>
+          <p>WELCOME TO YOUR PERSONAL SPACE</p>
+          <h2>Make today count. ✨</h2>
+          <span>Everything you need, in one place.</span>
+        </div>
+        <div class="welcome-icon">✦</div>
+      </section>
+
+      <!-- Dashboard overview cards -->
+      <h3 class="section-title">Your Overview</h3>
+
+      <section class="stats">
+        <div class="stat-card">
+          <span>📋 Total Tasks</span>
+          <h2>0</h2>
+          <small>Stay productive</small>
+        </div>
+
+        <div class="stat-card">
+          <span>⏰ Reminders</span>
+          <h2>0</h2>
+          <small>Never forget</small>
+        </div>
+
+        <div class="stat-card">
+          <span>💰 Money Balance</span>
+          <h2>Rs. 0</h2>
+          <small>Track your money</small>
+        </div>
+
+        <div class="stat-card">
+          <span>📁 Documents</span>
+          <h2>0</h2>
+          <small>Keep things organized</small>
+        </div>
+      </section>
+
+      <!-- Tasks and other panels -->
+      <section class="bottom-grid">
+
+        <!-- Tasks panel -->
+        <div class="panel" id="tasksPanel">
+          <h3>Today's Tasks</h3>
+          <p class="empty">No tasks yet.</p>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="panel">
+          <h3>Quick Actions</h3>
+          <button class="action-btn">+ Add New Task</button>
+          <button class="action-btn">+ Add Reminder</button>
+          <button class="action-btn">+ Add Note</button>
+        </div>
+
+        <!-- Reminders panel -->
+        <div class="panel" id="remindersPanel">
+          <h3>⏰ My Reminders</h3>
+
+          <form id="reminderForm" class="task-form">
+
+            <label for="reminderInput">Reminder title</label>
+            <input
+              type="text"
+              id="reminderInput"
+              placeholder="Reminder title..."
+              maxlength="100"
+              required
+            >
+
+            <label for="reminderTime">Reminder date and time</label>
+            <input
+              type="datetime-local"
+              id="reminderTime"
+              required
+            >
+
+            <button type="submit">+ Add</button>
+          </form>
+
+          <div id="reminderList"></div>
+        </div>
+
+        <!-- Notes panel -->
+        <div class="panel notes-panel" id="notesPanel">
+          <h3>📝 My Notes</h3>
+
+          <form id="noteForm" class="note-form">
+
+            <label for="noteTitle">Note title</label>
+            <input
+              type="text"
+              id="noteTitle"
+              placeholder="Note title..."
+              maxlength="80"
+              required
+            >
+
+            <label for="noteContent">Note content</label>
+            <textarea
+              id="noteContent"
+              placeholder="Write your thoughts here..."
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <button type="submit" id="noteSubmit">
+              + Save Note
+            </button>
+
+            <button
+              type="button"
+              id="cancelNoteEdit"
+              class="cancel-note"
+              hidden
+            >
+              Cancel Edit
+            </button>
+          </form>
+
+          <div id="notesList"></div>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <footer>Made for your life. Made with LifeOS. 💜</footer>
+
+    </main>
+  </div>
+
+  <!-- Connect JavaScript file -->
+  <script src="app.js"></script>
+</body>
+</html>

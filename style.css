@@ -1,0 +1,2179 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #100d1d;
+  --sidebar: #171327;
+  --card: #1d1830;
+  --purple: #9b70ff;
+  --text: #f6f2ff;
+  --muted: #a69db9;
+  --border: #302744;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: var(--sidebar);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 30px;
+  margin-bottom: 55px;
+}
+
+.logo span {
+  color: var(--purple);
+}
+
+.menu-title {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  background: #30234d;
+  color: white;
+}
+
+nav a.active {
+  border-left: 3px solid var(--purple);
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  color: var(--muted);
+  line-height: 2;
+}
+
+.main {
+  flex: 1;
+  padding: 35px;
+  max-width: 1600px;
+  margin: auto;
+  width: 100%;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.profile {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  padding: 14px;
+}
+
+.welcome {
+  background: linear-gradient(110deg, #392568, #201738);
+  border: 1px solid #574080;
+  border-radius: 18px;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.welcome p {
+  color: #cbb6ff;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.welcome h2 {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.welcome span {
+  color: #c9bddc;
+}
+
+.welcome-icon {
+  font-size: 65px;
+  color: #c5aaff;
+}
+
+.section-title {
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.stat-card,
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 23px;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stat-card h2 {
+  font-size: 27px;
+  margin: 18px 0 8px;
+  color: var(--purple);
+}
+
+.stat-card small {
+  color: var(--muted);
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.panel h3 {
+  margin-bottom: 20px;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.action-btn {
+  width: 100%;
+  background: #30234d;
+  border: 1px solid #574080;
+  color: white;
+  padding: 13px;
+  margin-bottom: 10px;
+  border-radius: 9px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.action-btn:hover {
+  background: #49336e;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 45px;
+}
+
+@media (max-width: 950px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .welcome {
+    padding: 22px;
+  }
+
+  .welcome-icon {
+    font-size: 35px;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* LIFEOS TASK SYSTEM */
+
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  min-width: 0;
+  flex: 1;
+  background: #100d1d;
+  border: 1px solid #49376a;
+  color: white;
+  padding: 12px;
+  border-radius: 9px;
+  outline: none;
+}
+
+.task-form input:focus {
+  border-color: #9b70ff;
+}
+
+.task-form button {
+  background: #8054df;
+  color: white;
+  border: none;
+  padding: 12px 17px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #28203c;
+  padding: 13px;
+  border-radius: 9px;
+  margin-bottom: 9px;
+}
+
+.task-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.task-label input {
+  accent-color: #9b70ff;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.delete-task {
+  background: transparent;
+  border: none;
+  color: #ff8585;
+  font-size: 17px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* =========================================
+   LIFEOS - NOTES SYSTEM DESIGN
+   ========================================= */
+
+/* Notes form ka layout */
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+/* Notes title input aur description */
+.note-form input,
+.note-form textarea {
+  width: 100%;
+  background: #100d1d;
+  border: 1px solid #49376a;
+  color: #ffffff;
+  padding: 13px;
+  border-radius: 9px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Input focus hone par purple border */
+.note-form input:focus,
+.note-form textarea:focus {
+  border-color: #9b70ff;
+}
+
+/* Notes description ki settings */
+.note-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Save note button */
+.note-form button {
+  background: #8054df;
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Button hover effect */
+.note-form button:hover {
+  background: #9b70ff;
+}
+
+/* Cancel edit button */
+.note-form .cancel-note {
+  background: #302744;
+}
+
+/* Hidden cancel button ko display na karein */
+.note-form button[hidden] {
+  display: none;
+}
+
+/* Individual note card */
+.note-card {
+  background: #28203c;
+  border: 1px solid #49376a;
+  border-radius: 11px;
+  padding: 17px;
+  margin-bottom: 12px;
+}
+
+/* Note title */
+.note-card h4 {
+  color: #cbb6ff;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Note content */
+.note-content {
+  color: #e5deef;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin-bottom: 12px;
+}
+
+/* Note date */
+.note-date {
+  color: #a69db9;
+  font-size: 11px;
+}
+
+/* Note action buttons */
+.note-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Common button styling */
+.note-actions button {
+  border: none;
+  padding: 9px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Edit button */
+.edit-note {
+  background: #574080;
+}
+
+/* Delete button */
+.delete-note {
+  background: #753545;
+}
+
+/* Mobile-friendly buttons */
+@media (max-width: 500px) {
+  .note-actions button {
+    flex: 1;
+  }
+}
+
+/* =========================================
+   LIFEOS - MONEY TRACKER DESIGN
+   ========================================= */
+
+/* Money summary cards */
+.money-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 25px;
+}
+
+.money-summary-card {
+  background: #28203c;
+  border: 1px solid #49376a;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 0;
+}
+
+.money-summary-card small {
+  display: block;
+  color: #a69db9;
+  margin-bottom: 10px;
+}
+
+.money-summary-card strong {
+  color: #cbb6ff;
+  overflow-wrap: anywhere;
+}
+
+/* Money forms */
+.money-form {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 15px 0 25px;
+}
+
+.money-form input,
+.money-form select {
+  width: 100%;
+  background: #100d1d;
+  border: 1px solid #49376a;
+  color: white;
+  padding: 13px;
+  border-radius: 9px;
+  outline: none;
+}
+
+.money-form input:focus,
+.money-form select:focus {
+  border-color: #9b70ff;
+}
+
+/* Form submit button */
+.money-form button {
+  background: #8054df;
+  border: none;
+  color: white;
+  padding: 13px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.money-form button:hover {
+  background: #9b70ff;
+}
+
+/* Transaction history heading */
+.money-heading {
+  margin: 20px 0 12px;
+}
+
+/* Individual transaction row */
+.money-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #28203c;
+  padding: 13px;
+  border-radius: 9px;
+  margin-bottom: 9px;
+  min-width: 0;
+}
+
+/* Transaction details */
+.money-item > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.money-item strong {
+  overflow-wrap: anywhere;
+}
+
+.money-item small {
+  color: #a69db9;
+  font-size: 11px;
+}
+
+/* Income and expense colors */
+.income-text {
+  color: #65d99b;
+  font-size: 13px;
+}
+
+.expense-text {
+  color: #ff8585;
+  font-size: 13px;
+}
+
+/* Udhaar section */
+.loan-section {
+  border-top: 1px solid #49376a;
+  margin-top: 30px;
+  padding-top: 25px;
+}
+
+.loan-section h3 {
+  margin-bottom: 15px;
+}
+
+/* Udhaar summary */
+.loan-summary {
+  background: #28203c;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.loan-summary p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 8px 0;
+  color: #c9bddc;
+}
+
+.loan-summary strong {
+  color: #cbb6ff;
+}
+
+/* Responsive Money Tracker */
+@media (max-width: 500px) {
+  .money-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .money-item {
+    gap: 7px;
+    padding: 10px;
+  }
+}
+
+/* ============================================
+   LIFEOS - DOCUMENTS MANAGER STYLES
+   ============================================ */
+
+/* Documents form layout */
+.document-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* Form inputs and dropdown */
+.document-form input,
+.document-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: #211b32;
+  color: white;
+  font: inherit;
+  outline: none;
+}
+
+/* Date input color */
+.document-form input[type="date"] {
+  color-scheme: dark;
+}
+
+/* Form labels */
+.document-form label {
+  color: #c9bfdc;
+  font-size: 13px;
+  margin-bottom: -7px;
+}
+
+/* Save document button */
+.document-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #8155d9;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.document-form button:hover {
+  background: #986cf0;
+  transform: translateY(-2px);
+}
+
+/* Documents section heading */
+.documents-heading {
+  margin-top: 24px;
+  margin-bottom: 14px;
+  color: #eee8ff;
+}
+
+/* Individual document card */
+.document-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Document information */
+.document-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* Document name */
+.document-item strong {
+  color: #f0eaff;
+  overflow-wrap: anywhere;
+}
+
+/* Category, date and notes */
+.document-item small {
+  color: #aaa0bd;
+  overflow-wrap: anywhere;
+}
+
+/* Expiry status */
+.document-status {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 3px 0;
+}
+
+.document-status.expired {
+  color: #ff7777;
+}
+
+.document-status.expiring {
+  color: #ffc56b;
+}
+
+.document-status.valid {
+  color: #83d9a4;
+}
+
+/* Responsive document card */
+@media (max-width: 600px) {
+  .document-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ==========================================
+   LIFEOS - CALENDAR & DAILY PLANNER STYLES
+========================================== */
+
+.calendar-panel {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.calendar-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.calendar-box,
+.calendar-form-box,
+.calendar-event-box {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.calendar-month-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calendar-month-header h3 {
+    margin: 0;
+    color: #fff;
+}
+
+.calendar-month-header button {
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 10px;
+    background: #30204f;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+    color: #aaa0bf;
+    font-size: 12px;
+    padding: 8px 0;
+}
+
+.calendar-day {
+    position: relative;
+    min-width: 0;
+    min-height: 42px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.045);
+    color: #eee8fa;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    background: #39245c;
+}
+
+.calendar-day.empty {
+    background: transparent;
+    cursor: default;
+}
+
+.calendar-day.today {
+    border-color: #a77bff;
+    color: #c9aaff;
+}
+
+.calendar-day.selected {
+    background: #7041bd;
+    color: #fff;
+}
+
+.calendar-day.has-event::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #d6a5ff;
+    transform: translateX(-50%);
+}
+
+.calendar-form-box h3,
+.calendar-event-box h3 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.calendar-form-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calendar-form-box label {
+    color: #c8bfd9;
+    font-size: 13px;
+}
+
+.calendar-form-box input,
+.calendar-form-box textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #171225;
+    color: #fff;
+    font: inherit;
+    outline: none;
+}
+
+.calendar-form-box input:focus,
+.calendar-form-box textarea:focus {
+    border-color: #a77bff;
+}
+
+.calendar-form-box textarea {
+    resize: vertical;
+}
+
+.calendar-form-box .primary-btn {
+    margin-top: 8px;
+    padding: 12px;
+    border: 0;
+    border-radius: 9px;
+    background: #7544c4;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.calendar-event-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 22px;
+}
+
+.calendar-event-card,
+.calendar-upcoming-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.calendar-event-card strong,
+.calendar-upcoming-item strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.calendar-event-card span,
+.calendar-upcoming-item span {
+    display: block;
+    color: #b7a9ce;
+    font-size: 12px;
+}
+
+.calendar-event-card p {
+    color: #aaa0bf;
+    font-size: 13px;
+    margin: 7px 0 0;
+    overflow-wrap: anywhere;
+}
+
+.calendar-delete-btn {
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 7px;
+    padding: 8px 10px;
+    background: #59283d;
+    color: #ffb8ca;
+    cursor: pointer;
+}
+
+.calendar-empty-message {
+    color: #aaa0bf;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+    .calendar-layout,
+    .calendar-event-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .calendar-box,
+    .calendar-form-box,
+    .calendar-event-box {
+        padding: 14px;
+    }
+
+    .calendar-weekdays,
+    .calendar-days {
+        gap: 4px;
+    }
+
+    .calendar-day {
+        min-height: 38px;
+        font-size: 13px;
+    }
+}
+
+/* ==========================================
+   LIFEOS - HABIT TRACKER STYLES
+========================================== */
+
+.habits-panel {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.habit-form {
+    display: flex;
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.habit-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 15px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    background: #171225;
+    color: #fff;
+    font: inherit;
+    outline: none;
+}
+
+.habit-form input:focus {
+    border-color: #a77bff;
+}
+
+.habit-form .primary-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #7544c4;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.habit-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.habit-summary-card {
+    padding: 17px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 13px;
+    background: rgba(255,255,255,0.04);
+}
+
+.habit-summary-card span {
+    display: block;
+    color: #b7a9ce;
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+.habit-summary-card strong {
+    color: #fff;
+    font-size: 25px;
+}
+
+.habit-list-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.habit-list-heading h3 {
+    color: #fff;
+    margin: 0;
+}
+
+.habit-list-heading span {
+    color: #b7a9ce;
+    font-size: 12px;
+}
+
+.habit-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    margin-bottom: 11px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+}
+
+.habit-card.habit-is-completed {
+    border-color: rgba(135, 220, 170, 0.35);
+    background: rgba(70, 150, 105, 0.09);
+}
+
+.habit-info {
+    min-width: 0;
+}
+
+.habit-info strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+
+.habit-info span {
+    color: #b7a9ce;
+    font-size: 12px;
+}
+
+.habit-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.habit-complete-btn,
+.habit-delete-btn {
+    padding: 9px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.habit-complete-btn {
+    background: #39245c;
+    color: #d8c1ff;
+}
+
+.habit-is-completed .habit-complete-btn {
+    background: #24533d;
+    color: #b5f0cc;
+}
+
+.habit-delete-btn {
+    background: #59283d;
+    color: #ffb8ca;
+}
+
+.habit-empty-message {
+    padding: 20px;
+    color: #aaa0bf;
+    text-align: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.035);
+}
+
+@media (max-width: 600px) {
+    .habit-form {
+        flex-direction: column;
+    }
+
+    .habit-summary {
+        gap: 8px;
+    }
+
+    .habit-summary-card {
+        padding: 12px 9px;
+    }
+
+    .habit-summary-card strong {
+        font-size: 20px;
+    }
+
+    .habit-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .habit-actions {
+        width: 100%;
+    }
+
+    .habit-complete-btn,
+    .habit-delete-btn {
+        flex: 1;
+    }
+}
+
+/* ==========================================
+   LIFEOS - FOCUS TIMER STYLES
+========================================== */
+
+.focus-panel {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.focus-timer-card {
+    max-width: 620px;
+    margin: 25px auto;
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(112,65,189,0.16),
+        rgba(255,255,255,0.025)
+    );
+}
+
+.focus-mode-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.focus-mode-buttons button {
+    padding: 10px 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9px;
+    background: rgba(255,255,255,0.05);
+    color: #c8bfd9;
+    cursor: pointer;
+}
+
+.focus-mode-buttons button.active {
+    background: #7041bd;
+    color: #fff;
+    border-color: #a77bff;
+}
+
+.focus-clock {
+    margin: 35px 0 8px;
+    color: #fff;
+    font-size: clamp(55px, 10vw, 85px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+}
+
+.focus-status {
+    color: #b7a9ce;
+    margin-bottom: 25px;
+}
+
+.focus-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.focus-controls button {
+    min-width: 95px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 9px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.focus-start-btn {
+    background: #7544c4;
+}
+
+.focus-pause-btn {
+    background: #49365f;
+}
+
+.focus-reset-btn {
+    background: #59283d;
+}
+
+.focus-custom-time {
+    max-width: 340px;
+    margin: 30px auto 0;
+    text-align: left;
+}
+
+.focus-custom-time label {
+    display: block;
+    margin-bottom: 9px;
+    color: #c8bfd9;
+    font-size: 13px;
+}
+
+.focus-custom-time > div {
+    display: flex;
+    gap: 8px;
+}
+
+.focus-custom-time input {
+    width: 100%;
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 9px;
+    background: #171225;
+    color: #fff;
+    outline: none;
+}
+
+.focus-custom-time button {
+    flex-shrink: 0;
+    padding: 10px 13px;
+    border: none;
+    border-radius: 9px;
+    background: #39245c;
+    color: #fff;
+    cursor: pointer;
+}
+
+.focus-session-summary {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+}
+
+.focus-session-summary span {
+    color: #b7a9ce;
+    font-size: 14px;
+}
+
+.focus-session-summary strong {
+    color: #fff;
+    font-size: 25px;
+}
+
+@media (max-width: 500px) {
+    .focus-timer-card {
+        padding: 22px 12px;
+    }
+
+    .focus-mode-buttons button {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .focus-controls button {
+        min-width: 80px;
+        padding: 11px;
+    }
+}
+
+/* ==========================================
+   LIFEOS - DAILY JOURNAL STYLES
+========================================== */
+
+.journal-panel {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.journal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.035);
+}
+
+.journal-form label {
+    color: #c8bfd9;
+    font-size: 13px;
+}
+
+.journal-form input,
+.journal-form select,
+.journal-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 9px;
+    background: #171225;
+    color: #fff;
+    font: inherit;
+    outline: none;
+}
+
+.journal-form input:focus,
+.journal-form select:focus,
+.journal-form textarea:focus {
+    border-color: #a77bff;
+}
+
+.journal-form textarea {
+    resize: vertical;
+}
+
+.journal-form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.journal-form-buttons button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 9px;
+    background: #7544c4;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.journal-form-buttons #journalCancelBtn {
+    background: #392d4d;
+}
+
+.journal-history {
+    margin-top: 28px;
+}
+
+.journal-history-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.journal-history-heading h3 {
+    color: #fff;
+    margin: 0;
+}
+
+.journal-history-heading span {
+    color: #b7a9ce;
+    font-size: 12px;
+}
+
+.journal-entry-card {
+    padding: 17px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 13px;
+    background: rgba(255,255,255,0.04);
+}
+
+.journal-entry-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.journal-entry-heading strong {
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.journal-entry-heading span {
+    color: #d1b4ff;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.journal-entry-card small {
+    color: #a99abf;
+}
+
+.journal-entry-content {
+    color: #d0c8dc;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    margin: 13px 0;
+}
+
+.journal-entry-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.journal-entry-actions button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 7px;
+    background: #39245c;
+    color: #e0ceff;
+    cursor: pointer;
+}
+
+.journal-entry-actions button:last-child {
+    background: #59283d;
+    color: #ffb8ca;
+}
+
+.journal-empty {
+    padding: 20px;
+    color: #aaa0bf;
+    text-align: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.035);
+}
+
+@media (max-width: 600px) {
+    .journal-form {
+        padding: 14px;
+    }
+
+    .journal-entry-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* ==========================================
+   LIFEOS - GOALS TRACKER STYLES
+========================================== */
+
+.goals-panel {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.goal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.035);
+}
+
+.goal-form label {
+    color: #c8bfd9;
+    font-size: 13px;
+}
+
+.goal-form input,
+.goal-form select,
+.goal-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 9px;
+    background: #171225;
+    color: #fff;
+    font: inherit;
+    outline: none;
+}
+
+.goal-form input:focus,
+.goal-form select:focus,
+.goal-form textarea:focus {
+    border-color: #a77bff;
+}
+
+.goal-form textarea {
+    resize: vertical;
+}
+
+.goal-form button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 9px;
+    background: #7544c4;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.goal-form #goalCancelBtn {
+    background: #392d4d;
+}
+
+.goal-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.goal-summary-card {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+}
+
+.goal-summary-card span {
+    display: block;
+    color: #b7a9ce;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.goal-summary-card strong {
+    color: #fff;
+    font-size: 25px;
+}
+
+.goal-list-heading h3 {
+    color: #fff;
+}
+
+.goal-card {
+    padding: 17px;
+    margin-bottom: 13px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 13px;
+    background: rgba(255,255,255,0.04);
+}
+
+.goal-card.goal-is-completed {
+    border-color: rgba(135,220,170,0.35);
+}
+
+.goal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.goal-card-header strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+
+.goal-card-header div span {
+    color: #c3a5f5;
+    font-size: 12px;
+}
+
+.goal-status {
+    color: #b7a9ce;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.goal-description {
+    color: #c8bfd9;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.goal-deadline {
+    color: #a99abf;
+    font-size: 12px;
+}
+
+.goal-progress-header {
+    display: flex;
+    justify-content: space-between;
+    color: #c8bfd9;
+    font-size: 12px;
+    margin: 15px 0 8px;
+}
+
+.goal-progress-header strong {
+    color: #d7bdff;
+}
+
+.goal-progress-track {
+    width: 100%;
+    height: 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #251b37;
+}
+
+.goal-progress-fill {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #7041bd, #bd91ff);
+    transition: width 0.25s ease;
+}
+
+.goal-progress-slider {
+    width: 100%;
+    margin: 12px 0;
+    accent-color: #a77bff;
+    cursor: pointer;
+}
+
+.goal-progress-slider:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.goal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.goal-actions button {
+    padding: 9px 13px;
+    border: none;
+    border-radius: 8px;
+    background: #39245c;
+    color: #e0ceff;
+    cursor: pointer;
+}
+
+.goal-actions button:nth-child(2) {
+    background: #24533d;
+    color: #b5f0cc;
+}
+
+.goal-actions button:last-child {
+    background: #59283d;
+    color: #ffb8ca;
+}
+
+.goal-empty {
+    padding: 20px;
+    text-align: center;
+    color: #aaa0bf;
+    background: rgba(255,255,255,0.035);
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .goal-summary {
+        gap: 7px;
+    }
+
+    .goal-summary-card {
+        padding: 11px 8px;
+    }
+
+    .goal-summary-card strong {
+        font-size: 20px;
+    }
+
+    .goal-card-header {
+        flex-direction: column;
+    }
+
+    .goal-actions button {
+        flex: 1;
+    }
+}
+
+/* ==========================================
+   LIFEOS - ANALYTICS DASHBOARD STYLES
+========================================== */
+
+.analytics-panel {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.analytics-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+#refreshAnalytics {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 9px;
+    background: #7544c4;
+    color: white;
+    cursor: pointer;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.analytics-card {
+    padding: 18px;
+    border-radius: 13px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.analytics-card span,
+.analytics-money-grid span {
+    display: block;
+    color: #b7a9ce;
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+.analytics-card strong {
+    color: #fff;
+    font-size: 26px;
+}
+
+.analytics-section {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 13px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.analytics-section h3 {
+    color: #fff;
+    margin-top: 0;
+}
+
+.analytics-section p {
+    color: #bdb1d0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.analytics-bar-track {
+    height: 12px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #251b37;
+}
+
+.analytics-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #7041bd, #bd91ff);
+    transition: width 0.3s ease;
+}
+
+.analytics-money-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.analytics-money-grid > div {
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+}
+
+.analytics-money-grid strong {
+    color: #fff;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.analytics-hint {
+    margin-bottom: 0;
+    font-size: 11px !important;
+}
+
+@media (max-width: 700px) {
+    .analytics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .analytics-money-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .analytics-card {
+        padding: 13px;
+    }
+
+    .analytics-card strong {
+        font-size: 21px;
+    }
+}
+/* LifeOS Settings & Backup */
+#settingsPanel button {
+  display: inline-block;
+  margin: 10px 8px 10px 0;
+  padding: 12px 18px;
+  background: #8055c7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#settingsPanel button:hover {
+  background: #9b70df;
+}
+
+#settingsPanel p {
+  color: #b9aecb;
+}
+
+
+/* ===== LIFEOS LIGHT THEME ===== */
+body.light-theme {
+  background: #f4f0fa;
+  color: #292039;
+}
+
+body.light-theme .sidebar,
+body.light-theme .panel,
+body.light-theme .stat-card,
+body.light-theme .welcome {
+  background: #ffffff;
+  color: #292039;
+  border-color: #ded3ed;
+}
+
+body.light-theme p,
+body.light-theme small,
+body.light-theme .muted {
+  color: #655b70;
+}
+
+body.light-theme input,
+body.light-theme textarea,
+body.light-theme select {
+  background: #f8f5fc;
+  color: #292039;
+  border-color: #d8cce8;
+}
+
+body.light-theme .section-title {
+  color: #292039;
+}
+
+/* ===== PROFILE SETTINGS ===== */
+#profileSettings {
+  margin-top: 25px;
+  padding: 18px;
+  border: 1px solid #665080;
+  border-radius: 12px;
+}
+
+#profileSettings label {
+  display: block;
+  margin: 12px 0 6px;
+}
+
+#profileSettings input,
+#profileSettings select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #665080;
+  background: #211a30;
+  color: white;
+}
+
+#profileSettings button {
+  margin-top: 15px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #8055c7;
+  color: white;
+  cursor: pointer;
+}
+
+/* ==========================================
+   LIFEOS - FINAL MOBILE RESPONSIVE FIX
+   Existing desktop design ko preserve karega
+========================================== */
+
+/* Har element ko screen ke andar rakhein */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app,
+.main,
+.bottom-grid,
+.panel,
+.stat-card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Tablet aur mobile layout */
+@media (max-width: 768px) {
+
+  .app {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Sidebar ko mobile menu ki tarah horizontal banayein */
+  .sidebar {
+    width: 100%;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-size: 25px;
+    margin-bottom: 18px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  nav a {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+    padding: 16px;
+    margin: 0;
+  }
+
+  .topbar {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .welcome {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .welcome h2 {
+    font-size: 21px;
+  }
+
+  .welcome-icon {
+    font-size: 38px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat-card,
+  .panel {
+    padding: 15px;
+  }
+
+  .bottom-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calendar-layout,
+  .calendar-event-sections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .analytics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .habit-summary,
+  .goal-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .analytics-money-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Choti mobile screens */
+@media (max-width: 480px) {
+
+  .main {
+    padding: 12px;
+  }
+
+  .sidebar {
+    padding: 13px;
+  }
+
+  nav a {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .welcome {
+    padding: 16px;
+  }
+
+  .welcome h2 {
+    font-size: 18px;
+  }
+
+  .welcome-icon {
+    font-size: 30px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-card,
+  .panel {
+    padding: 12px;
+  }
+
+  .stat-card h2 {
+    font-size: 21px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .task-form,
+  .habit-form {
+    flex-wrap: wrap;
+  }
+
+  .task-form button {
+    padding: 12px;
+  }
+
+  .money-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .habit-summary,
+  .goal-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-weekdays,
+  .calendar-days {
+    gap: 3px;
+  }
+
+  .calendar-day {
+    min-height: 34px;
+    font-size: 11px;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .focus-session-summary {
+    flex-wrap: wrap;
+  }
+
+  .journal-form,
+  .goal-form {
+    padding: 12px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+  }
+}
